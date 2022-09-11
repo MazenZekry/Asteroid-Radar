@@ -16,6 +16,9 @@ interface AsteroidDao {
 
     @Query("SELECT * FROM asteroids WHERE closeApproachDate BETWEEN :startDate AND :endDate ORDER BY closeApproachDate DESC")
     fun getAsteroidsDate(startDate: String, endDate: String): LiveData<List<DatabaseAsteroid>>
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    fun insertAll(asteroids: List<DatabaseAsteroid>)
 }
 
 @Database(entities = [DatabaseAsteroid::class], version = 1, exportSchema = false)
@@ -28,9 +31,7 @@ abstract class AsteroidDatabase : RoomDatabase() {
         fun getDatabase(context: Context): AsteroidDatabase {
             synchronized(AsteroidDatabase::class.java) {
                 if (!::INSTANCE.isInitialized) {
-                    INSTANCE = Room.databaseBuilder(
-                        context.applicationContext,
-                        AsteroidDatabase::class.java,
+                    INSTANCE = Room.databaseBuilder(context.applicationContext, AsteroidDatabase::class.java,
                         "asteroids"
                     ).build()
                 }
