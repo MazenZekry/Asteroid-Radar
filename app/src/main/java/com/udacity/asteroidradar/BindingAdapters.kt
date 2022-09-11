@@ -10,8 +10,10 @@ import com.udacity.asteroidradar.models.PictureOfDay
 fun bindAsteroidStatusImage(imageView: ImageView, isHazardous: Boolean) {
     if (isHazardous) {
         imageView.setImageResource(R.drawable.ic_status_potentially_hazardous)
+        imageView.contentDescription = imageView.context.getString(R.string.potentially_hazardous_asteroid_image)
     } else {
         imageView.setImageResource(R.drawable.ic_status_normal)
+        imageView.contentDescription = imageView.context.getString(R.string.not_hazardous_asteroid_image)
     }
 }
 
@@ -19,8 +21,10 @@ fun bindAsteroidStatusImage(imageView: ImageView, isHazardous: Boolean) {
 fun bindDetailsStatusImage(imageView: ImageView, isHazardous: Boolean) {
     if (isHazardous) {
         imageView.setImageResource(R.drawable.asteroid_hazardous)
+        imageView.contentDescription = imageView.context.getString(R.string.potentially_hazardous_asteroid_image)
     } else {
         imageView.setImageResource(R.drawable.asteroid_safe)
+        imageView.contentDescription = imageView.context.getString(R.string.not_hazardous_asteroid_image)
     }
 }
 
@@ -44,10 +48,16 @@ fun bindTextViewToDisplayVelocity(textView: TextView, number: Double) {
 
 @BindingAdapter("pictureOfDay")
 fun bindImagePictureOfDay(imageView: ImageView, data: PictureOfDay?) {
-    Picasso.with(imageView.context)
-        .load(data?.url)
-        .placeholder(R.drawable.placeholder_picture_of_day)
-        .into(imageView)
+    if (data?.mediaType == "image"){
+        Picasso.with(imageView.context)
+            .load(data.url)
+            .placeholder(R.drawable.placeholder_picture_of_day)
+            .into(imageView)
+
+        val strFormat = imageView.resources.getString(
+            R.string.nasa_picture_of_day_content_description_format)
+        imageView.contentDescription = String.format(strFormat, data.title)
+    }
 }
 
 
