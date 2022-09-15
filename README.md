@@ -9,10 +9,10 @@ The app is consists of two screens: A Main screen with a list of all the detecte
 This kind of app is one of the most usual in the real world, what you will learn by doing this are some of the most fundamental skills you need to know to work as a professional Android developer, as fetching data from the internet, saving data to a database, and display the data in a clear, clear, compelling UI.
 
 ### Screenshots
-<img src="https://github.com/MazenZekry/Asteroid-Radar/blob/master/screenshots/screen_1.png?raw=true">
-<img src="https://github.com/MazenZekry/Asteroid-Radar/blob/master/screenshots/screen_2.png?raw=true">
-<img src="https://github.com/MazenZekry/Asteroid-Radar/blob/master/screenshots/screen_3.png?raw=true">
-<img src="https://github.com/MazenZekry/Asteroid-Radar/blob/master/screenshots/screen_4.png?raw=true">
+<img src="https://github.com/MazenZekry/Asteroid-Radar/blob/master/screenshots/screen_1.png?raw=true" width="300" height="300">
+<img src="https://github.com/MazenZekry/Asteroid-Radar/blob/master/screenshots/screen_2.png?raw=true" width="300" height="300">
+<img src="https://github.com/MazenZekry/Asteroid-Radar/blob/master/screenshots/screen_3.png?raw=true" width="300" height="300">
+<img src="https://github.com/MazenZekry/Asteroid-Radar/blob/master/screenshots/screen_4.png?raw=true" width="300" height="300">
 
 ## Project Instructions
 You will be provided with a starter code, which includes the necessary dependencies and plugins that you have been using along the courses and that you are going to need to complete this project.
@@ -22,7 +22,8 @@ The most important dependencies we are using are:
 + Moshi to convert the JSON data we are downloading to usable data in form of custom classes.
 + Glide to download and cache images.
 + RecyclerView to display the asteroids in a list.
-+ We recommend you following the guidelines seen in the courses, as well as using the components from the Jetpack library:
+
+We recommend you following the guidelines seen in the courses, as well as using the components from the Jetpack library:
 
 + ViewModel
 + Room
